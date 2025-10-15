@@ -259,9 +259,9 @@ async function getBalance(currency, address) {
                 console.error(`Error with ${provider.name} checking ${address} (retries left: ${retries - 1}):`, error.message);
                 retries--;
                 if (retries > 0) {
-                    console.log(`Waiting ${delay / 1000}s before retrying...`);
+                    console.log(`Waiting ${delay / 7000}s before retrying...`);
                     await sleep(delay);
-                    delay *= 2; // Exponential backoff
+                    delay *= 5; // Exponential backoff
                 } else {
                     console.log(`All retries failed for ${provider.name}. Moving to next provider.`);
                     break; // Exit the while loop to try the next provider
