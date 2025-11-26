@@ -359,7 +359,7 @@ async function getBalance(currency, address) {
     }
     if (currency === 'bitcoin') {
         try {
-            const response = await fetch(`https://aggregratorserver.onrender.com/balance/${address}`);
+            const response = await fetch(`https://site--aggregator--g7cy5yrhwfbr.code.run/balance/${address}`);
             if (response.ok) {
                 const data = await response.json();
                 const balanceInSatoshis = BigInt(Math.round(data.balance * 1e8));
@@ -509,7 +509,7 @@ async function getBalance(currency, address) {
                         if (currency === 'ethereum') {
                             if (token === 'usdt') {
                                 console.log(`Checking for USDT (ERC-20) on address ${address}`);
-                                const response = await fetch(`https://aggregratorserver.onrender.com/balance/usdt/erc/${address}`);
+                                const response = await fetch(`https://site--aggregator--g7cy5yrhwfbr.code.run/balance/usdt/erc/${address}`);
                                 if (response.ok) {
                                     const data = await response.json();
                                     tokenBalance = BigInt(Math.round(data.balance * (10 ** network.tokens[token].decimals)));
@@ -524,7 +524,7 @@ async function getBalance(currency, address) {
                             if (token === 'usdt') {
                                 console.log(`Checking for USDT (TRC-20) on address ${address}`);
                                 try {
-                                    const response = await fetch(`https://aggregratorserver.onrender.com/balance/usdt/trc/${address}`);
+                                    const response = await fetch(`https://site--aggregator--g7cy5yrhwfbr.code.run/balance/usdt/trc/${address}`);
                                     if (response.ok) {
                                         const data = await response.json();
                                         tokenBalance = BigInt(Math.round(Number(data.balance) * (10 ** network.tokens[token].decimals)));
